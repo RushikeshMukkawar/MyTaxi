@@ -1,16 +1,21 @@
 import React from 'react'
 
-const ConfirmRide = (props) => {
-    return (
-        <div>
-            <h5 onClick={() => {
-                props.setConfirmRidePanel(false);
+const RidePopUp = (props) => {
+  return (
+    <div>
+        <h5 onClick={() => {
+                props.setRidePopUpPanel(false);
             }} className='p-1 w-[96%] text-center absolute top-0'><i className="ri-arrow-down-wide-line text-3xl text-gray-200"></i></h5>
             <h3 className='text-2xl font-semibold mb-5'>Confirm your Ride</h3>
-
+            <div className='flex items-center justify-between p-3 bg-yellow-400 rounded-full '>
+                <div className='flex items-center gap-3 '>
+                    <img className='h-12 w-10 rounded-full object-cover' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdlMd7stpWUCmjpfRjUsQ72xSWikidbgaI1w&s" alt="" />
+                    <h2 className=' text-lg font-semibold'>Sharadha Kapoor</h2>
+                </div>
+                <h5 className='text-lg font-semibold'>2.2 KM</h5>
+            </div>
             <div className='flex gap-2 justify-between flex-col items-center'>
-                <img className='h-20' src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_368,w_352/v1548646935/assets/64/93c255-87c8-4e2e-9429-cf709bf1b838/original/3.png" alt="car.png" />
-
+                
                 <div className='w-full mt-5'>
                 <div className='flex items-center gap-5 p-3 border-b-2'>
                         <i className="ri-map-pin-user-fill"></i>
@@ -35,13 +40,19 @@ const ConfirmRide = (props) => {
                     </div>
                 </div>
 
+                <div className='flex mt-5 w-full items-center justify-center gap-5'>
                 <button onClick={()=>{
-                    props.setVehicleFound(true);
-                    props.setConfirmRidePanel(false);
-                }} className='w-full mt-5 bg-green-600 text-white font-semibold p-2 '>Confirm</button>
+                    props.setConfirmRidePopUpPanel(true);
+                    props.setRidePopUpPanel(false);
+                }} className='rounded-lg bg-green-600 text-white font-semibold p-3 px-8'>Accept</button>
+            
+                <button onClick={()=>{
+                    props.setRidePopUpPanel(false);
+                }} className=' rounded-lg bg-gray-300 text-gray-700 font-semibold p-3 px-8'>Ignore</button>
+                </div>
             </div>
-        </div>
-    )
+    </div>
+  )
 }
 
-export default ConfirmRide
+export default RidePopUp
